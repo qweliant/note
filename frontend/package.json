@@ -20,9 +20,14 @@
     "vite": "^3.0.0"
   },
   "dependencies": {
-    "@tiptap/core": "^2.0.3",
-    "@tiptap/pm": "^2.0.3",
-    "@tiptap/starter-kit": "^2.0.3",
+    "@editorjs/checklist": "^1.5.0",
+    "@editorjs/editorjs": "^2.27.0",
+    "@editorjs/header": "^2.7.0",
+    "@editorjs/link": "^2.5.0",
+    "@editorjs/list": "^1.8.0",
+    "@editorjs/quote": "^2.5.0",
+    "@editorjs/simple-image": "^1.5.1",
+    "@editorjs/table": "^2.2.1",
     "codemirror": "^6.0.1",
     "commonmark": "^0.30.0"
   }
