@@ -29,13 +29,19 @@
     });
   });
 
+  const save = async () => {
+    const outputData = await editor.save();
+    console.log("Article data: ", outputData);
+  };
   // Destroy the editor instance when the component is unmounted
   onDestroy(() => {
     editor?.destroy();
   });
 </script>
 
-<div id="editor" />
+<div id="editor">
+  <button on:click={save}>Save</button>
+</div>
 
 <style>
   /* Add any desired CSS styles for the editor container */

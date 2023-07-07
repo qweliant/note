@@ -39,3 +39,8 @@ type Address struct {
 func (a *App) Greet(p Person) string {
 	return fmt.Sprintf("Hello %s (Age: %d)!", p.Name, p.Age)
 }
+
+type Note struct {
+	Title string `json:"title"`
+	Body  string `json:"body"`
+}

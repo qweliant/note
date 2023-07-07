@@ -29,7 +29,6 @@ func main() {
 		Bind: []interface{}{
 			app,
 		},
-		Menu: app.menu(),
 	})
 
 	if err != nil {
