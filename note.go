@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
+// the string attached to body will be json
 type Note struct {
-	Title string `json:"title"`
 	Body  string `json:"body"`
 }
 

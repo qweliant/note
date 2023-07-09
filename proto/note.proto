@@ -3,6 +3,5 @@ syntax = "proto3";
 option go_package = "./notes";
 
 message Note {
-  string title = 1;
-  string body = 2;
+  string body = 1;
 }
