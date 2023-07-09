@@ -2,7 +2,6 @@
   import Editor from "./lib/Editor.svelte";
   import { Greet } from "../wailsjs/go/main/App";
   import { main } from "../wailsjs/go/models";
-  import EditorJS from "@editorjs/editorjs";
 
   let person = new main.Person();
   person.name = "Peter";
