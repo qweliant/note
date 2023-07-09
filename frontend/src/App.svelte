@@ -1,11 +1,5 @@
 <script>
   import Editor from "./lib/Editor.svelte";
-
-  // this is how you import a function from a go
-  // // @ts-ignore
-  // Greet(person).then((result) => {
-  //   console.log(result);
-  // });
 </script>
 
 <main>

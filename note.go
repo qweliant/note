@@ -7,7 +7,6 @@ type Note struct {
 	Body  string `json:"body"`
 }
 
-func (a *App) CreateNote(n Note) string {
-	return fmt.Sprintf("Contents Are (Age: %s)!", n.Body)
-
+func (a * App) SaveNote (n Note) string {
+	return fmt.Sprintf("Saved Note (Note: %s)!", n.Body)
 }

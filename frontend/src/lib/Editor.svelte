@@ -1,12 +1,15 @@
-<script>
+<script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import EditorJS from "@editorjs/editorjs";
+
+  import { SaveNote } from "../../wailsjs/go/main/App";
+  import { main } from "../../wailsjs/go/models";
 
   import SimpleImage from "@editorjs/simple-image";
   import Header from "@editorjs/header";
   import List from "@editorjs/list";
-
-  let editor;
+  let note = new main.Note();
+  let editor: EditorJS;
 
   onMount(() => {
     // Initialize the EditorJS instance
@@ -86,8 +89,12 @@
 
   const save = async () => {
     const outputData = await editor.save();
-    console.log("Article data: ", outputData);
+    note.body = JSON.stringify(outputData);
+    SaveNote(note).then((result) => {
+      console.log(result);
+    });
   };
+
   // Destroy the editor instance when the component is unmounted
   onDestroy(() => {
     editor?.destroy();
