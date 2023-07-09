@@ -8,6 +8,6 @@ type Note struct {
 }
 
 func (a *App) CreateNote(n Note) string {
-	return fmt.Sprintf("Contents Are (Age: %d)!", n.Body)
+	return fmt.Sprintf("Contents Are (Age: %s)!", n.Body)
 
 }
