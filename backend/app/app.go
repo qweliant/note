@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"context"
@@ -15,10 +15,12 @@ func NewApp() *App {
 }
 
 // startup is called when the app starts. The context is saved
-// so we can call the runtime methods
-func (a *App) startup(ctx context.Context) {
+// so we can call the runtime methods 
+// on startup load data from protobuff and begin I/O
+func (a * App) Startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-func (a *App) shutdown(ctx context.Context) {
+// always open stream to save before close
+func (a * App) Shutdown(ctx context.Context) {
 }
