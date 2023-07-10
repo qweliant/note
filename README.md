@@ -2,7 +2,8 @@
 
 ## About
 
-This is the official Wails Svelte-TS template.
+Generating protobuf 
+```protoc --go_out=. proto/note.proto```  
 
 ## Live Development
 
