@@ -2,6 +2,14 @@
 
 ## About
 
+Dependencies are 
+
+wails
+protoc
+google protobuf
+
+reminder to add how to install here
+
 Generating protobuf 
 ```protoc --go_out=. proto/note.proto```  
 
