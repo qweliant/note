@@ -1,7 +1,7 @@
-export namespace main {
+export namespace app {
 	
 	export class Note {
-	    body: string;
+	    body?: string;
 	
 	    static createFrom(source: any = {}) {
 	        return new Note(source);

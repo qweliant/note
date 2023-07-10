@@ -3,8 +3,8 @@ module note
 go 1.18
 
 require (
-	github.com/golang/protobuf v1.5.3
-	github.com/wailsapp/wails/v2 v2.4.1
+	github.com/wailsapp/wails/v2 v2.5.1
+	google.golang.org/protobuf v1.26.0
 )
 
 require (
@@ -31,7 +31,6 @@ require (
 	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
-	google.golang.org/protobuf v1.26.0 // indirect
 )
 
 // replace github.com/wailsapp/wails/v2 v2.4.1 => /home/gr0xth/go/pkg/mod

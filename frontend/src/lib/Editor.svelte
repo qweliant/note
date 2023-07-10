@@ -2,13 +2,14 @@
   import { onMount, onDestroy } from "svelte";
   import EditorJS from "@editorjs/editorjs";
 
-  import { SaveNote } from "../../wailsjs/go/main/App";
-  import { main } from "../../wailsjs/go/models";
+  import { SaveNote } from "../../wailsjs/go/app/App";
+  import { app } from "../../wailsjs/go/models";
 
   import SimpleImage from "@editorjs/simple-image";
   import Header from "@editorjs/header";
   import List from "@editorjs/list";
-  let note = new main.Note();
+
+  let note = new app.Note();
   let editor: EditorJS;
 
   onMount(() => {
