@@ -4,4 +4,8 @@ import {app} from '../models';
 
 export function ReadNote(arg1:app.Note):Promise<app.Note>;
 
+export function ReadProtoFromFile(arg1:string):Promise<app.Note>;
+
 export function SaveNote(arg1:app.Note):Promise<string>;
+
+export function WriteProtoToFile(arg1:string,arg2:app.Note):Promise<void>;

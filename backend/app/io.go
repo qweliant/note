@@ -8,14 +8,14 @@ import (
 )
 
 // read to proto
-func WriteProtoToFile(filepath string, note *Note) error {
+func (a *App) WriteProtoToFile(filepath string, note *Note) error {
 
 	// Write the new address book back to disk.
 	out, err := proto.Marshal(note)
 	if err != nil {
 		log.Fatalln("Failed to encode address book:", err)
 	}
-	if err := ioutil.WriteFile("raw", out, 0644); err != nil {
+	if err := ioutil.WriteFile(filepath, out, 0644); err != nil {
 		log.Fatalln("Failed to write address book:", err)
 	}
 
@@ -23,9 +23,9 @@ func WriteProtoToFile(filepath string, note *Note) error {
 }
 
 // read from proto
-func ReadProtoFromFile(filepath string) *Note {
+func (a *App) ReadProtoFromFile(filepath string) *Note {
 	// Read the existing address book.
-	in, err := ioutil.ReadFile("raw")
+	in, err := ioutil.ReadFile(filepath)
 	if err != nil {
 		log.Fatalln("Error reading file:", err)
 	}

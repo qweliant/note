@@ -6,6 +6,14 @@ export function ReadNote(arg1) {
   return window['go']['app']['App']['ReadNote'](arg1);
 }
 
+export function ReadProtoFromFile(arg1) {
+  return window['go']['app']['App']['ReadProtoFromFile'](arg1);
+}
+
 export function SaveNote(arg1) {
   return window['go']['app']['App']['SaveNote'](arg1);
+}
+
+export function WriteProtoToFile(arg1, arg2) {
+  return window['go']['app']['App']['WriteProtoToFile'](arg1, arg2);
 }
