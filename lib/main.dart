@@ -1,7 +1,8 @@
-import 'dart:math';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,13 +20,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'N O T E'),
+      home: MyHomePage(title: 'N O T E', storage: NoteStorage()),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.storage});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -37,18 +38,32 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-
+  final NoteStorage storage;
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final String _markdownData = "Hello New World";
+  String _markdownData = "Hello New World";
   final TextEditingController _controller = TextEditingController();
 
-  void _saveNote() {
-    // Save the note to the database
-    setState(() {});
+  @override
+  void initState() {
+    super.initState();
+    widget.storage.readNote().then((value) {
+      setState(() {
+        _markdownData = value;
+      });
+    });
+  }
+
+  Future<File> _saveNote() {
+    setState(() {
+      _markdownData = _controller.text;
+    });
+
+    // Write the variable as a string to the file.
+    return widget.storage.writeNote(_markdownData);
   }
 
   @override
@@ -124,5 +139,32 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.data_saver_off),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class NoteStorage {
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    return directory.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/note.md');
+  }
+
+  Future<File> writeNote(String markdown) async {
+    final file = await _localFile;
+    return file.writeAsString(markdown);
+  }
+
+  Future<String> readNote() async {
+    try {
+      final file = await _localFile;
+      final contents = await file.readAsString();
+      return contents;
+    } catch (e) {
+      return 'Error: $e';
+    }
   }
 }
